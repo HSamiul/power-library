@@ -1,18 +1,28 @@
 //
-//  File.swift
-//  
+//  Authorization.swift
+//
 //
 //  Created by Samiul Hoque on 8/4/24.
 //
 
 import Foundation
 
-/// Manages the authorization state of your application.
+/// Manages the authorization state of your Spotify app.
 @available(iOS 16.0, *)
 internal final class Authorization {
     
+    /// Your spotify application.
     private let app: App
     
+    /// An access token.
+    private let accessToken: String? = nil
+    
+    /// A refresh token.
+    private let refreshToken: String? = nil
+    
+    
+    /// Initializes an instance of this class.
+    /// - Parameter app: Your Spotify app.
     init(app: App) {
         self.app = app
     }
@@ -20,6 +30,12 @@ internal final class Authorization {
 
 @available(iOS 16.0, *)
 internal extension Authorization {
+    
+    /// Exchanges `authorizationCode` for an access token and refreshes it indefinitely.
+    /// - Parameter authorizationCode: An authorization code.
+    func authorize(authorizationCode: String) async throws {
+        let response = try await requestAccessToken(authorizationCode: authorizationCode)
+    }
     
     /// The URL to log in to your app.
     var authorizeUrl: String {
