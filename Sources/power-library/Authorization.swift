@@ -15,11 +15,10 @@ internal final class Authorization {
     private let app: App
     
     /// An access token.
-    private let accessToken: String? = nil
+    private var accessToken: String? = nil
     
     /// A refresh token.
-    private let refreshToken: String? = nil
-    
+    private var refreshToken: String? = nil
     
     /// Initializes an instance of this class.
     /// - Parameter app: Your Spotify app.
@@ -35,6 +34,15 @@ internal extension Authorization {
     /// - Parameter authorizationCode: An authorization code.
     func authorize(authorizationCode: String) async throws {
         let response = try await requestAccessToken(authorizationCode: authorizationCode)
+        
+        accessToken = response.accessToken
+        refreshToken = response.refreshToken
+        
+        Timer.scheduledTimer(withTimeInterval: 3600, repeats: true) { _ in
+            Task {
+                try await self.refreshAccessToken()
+            }
+        }
     }
     
     /// The URL to log in to your app.
@@ -59,6 +67,18 @@ internal extension Authorization {
 
 @available(iOS 16.0, *)
 private extension Authorization {
+    
+    /// Exchanges `refreshToken` for a new access token and refesh token.
+    func refreshAccessToken() async throws {
+        guard let refreshToken else {
+            throw AuthorizationError.RefreshTokenMissing
+        }
+        
+        let response = try await requestAccessToken(refreshToken: refreshToken)
+        
+        accessToken = response.accessToken
+        self.refreshToken = response.refreshToken
+    }
     
     /// Sends a request to Spotify's `/api/token` endpoint, exchanging an authorization code for an access token.
     ///
