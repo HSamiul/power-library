@@ -1,8 +1,12 @@
 //
-//  File.swift
-//  
+//  Profile.swift
+//
 //
 //  Created by Samiul Hoque on 8/5/24.
 //
 
-import Foundation
+/// The user's profile.
+class Profile {
+    
+    
+}
