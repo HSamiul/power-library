@@ -7,7 +7,7 @@
 
 struct Image: Decodable {
     
-    var url: String
-    var height: Int?
-    var width: Int?
+    let url: String
+    let height: Int?
+    let width: Int?
 }
