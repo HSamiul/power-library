@@ -8,7 +8,7 @@
 import Foundation
 
 /// Response received from Spotify's `api/token` endpoint.
-internal struct AccessTokenResponse: Decodable {
+struct AccessTokenResponse: Decodable {
     
     let accessToken: String
     let tokenType: String

@@ -9,7 +9,7 @@ import Foundation
 
 /// Manages the authorization state of your Spotify app.
 @available(iOS 16.0, *)
-internal final class Authorization {
+final class Authorization {
     
     /// Your spotify application.
     private let app: App
@@ -28,7 +28,7 @@ internal final class Authorization {
 }
 
 @available(iOS 16.0, *)
-internal extension Authorization {
+extension Authorization {
     
     /// Exchanges `authorizationCode` for an access token and refreshes it indefinitely.
     /// - Parameter authorizationCode: An authorization code.
