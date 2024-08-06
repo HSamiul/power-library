@@ -11,14 +11,14 @@ import Foundation
 public struct App {
     
     /// The client ID of your Spotify app.
-    internal let clientId: String
+    let clientId: String
     
     /// The client secret of your Spotify app.
-    internal let clientSecret: String
+    let clientSecret: String
     
     /// A redirect URL of your Spotify app.
-    internal let redirectUrl: URL
+    let redirectUrl: URL
     
     /// The scope of your Spotify app.
-    internal let scope: String
+    let scope: String
 }
