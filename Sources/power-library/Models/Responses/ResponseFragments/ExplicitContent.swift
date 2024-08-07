@@ -7,7 +7,8 @@
 
 struct ExplicitContent: Decodable {
 
-    let filterEnabled: Bool    
+    let filterEnabled: Bool  
+    
     let filterLocked: Bool
 }
 

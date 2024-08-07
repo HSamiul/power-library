@@ -11,9 +11,13 @@ import Foundation
 struct AccessTokenResponse: Decodable {
     
     let accessToken: String
+    
     let tokenType: String
+    
     let expiresIn: Int
+    
     let refreshToken: String?
+    
     let scope: String
 }
 

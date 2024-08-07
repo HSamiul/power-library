@@ -8,5 +8,6 @@
 struct Followers: Decodable {
     
     let href: String?
+    
     let total: Int
 }
