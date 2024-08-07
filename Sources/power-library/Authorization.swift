@@ -119,7 +119,7 @@ private extension Authorization {
             URLQueryItem(name: "refresh_token", value: refreshToken)
         ]
         
-        let url = accessTokenRequestUrl.appending(queryItems: queryItems)
+        let url = accessTokenEndpoint.appending(queryItems: queryItems)
         
         var request = URLRequest(url: url)
         
@@ -134,7 +134,7 @@ private extension Authorization {
     }
     
     /// Spotify's `/api/token` endpoint.
-    var accessTokenRequestUrl: URL {
+    var accessTokenEndpoint: URL {
         var components = URLComponents()
         
         components.scheme = "https"
