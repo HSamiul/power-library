@@ -1,6 +1,6 @@
 //
 //  Client.swift
-//  
+//
 //
 //  Created by Samiul Hoque on 8/6/24.
 //
@@ -16,21 +16,22 @@ import Foundation
 /// ...
 /// ```
 @available(iOS 16.0, *)
-class Client {
+@available(macOS 13.0, *)
+public class Client {
     
-    let profile: Profile
+    public let profile: Profile
+    
+    public let auth: Authorization
     
     private let app: App
     
-    private let auth: Authorization
-    
-    init(app: App) {
+    public init(app: App) {
         self.profile = Profile()
         self.app = app
         self.auth = Authorization(app: app)
     }
     
-    func authorize(authorizationCode: String) async throws {
+    public func authorize(authorizationCode: String) async throws {
         try await auth.authorize(authorizationCode: authorizationCode)
     }
 }

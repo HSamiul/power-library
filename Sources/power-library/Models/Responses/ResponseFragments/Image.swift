@@ -5,11 +5,11 @@
 //  Created by Samiul Hoque on 8/5/24.
 //
 
-struct Image: Decodable {
+public struct Image: Decodable {
     
-    let url: String
+    public let url: String
     
-    let height: Int?
+    public let height: Int?
     
-    let width: Int?
+    public let width: Int?
 }

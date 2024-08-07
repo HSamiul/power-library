@@ -9,7 +9,8 @@ import Foundation
 
 /// Manages the authorization state of your Spotify app.
 @available(iOS 16.0, *)
-final class Authorization {
+@available(macOS 13.0, *)
+public final class Authorization {
     
     /// Your spotify application.
     private let app: App
@@ -28,6 +29,7 @@ final class Authorization {
 }
 
 @available(iOS 16.0, *)
+@available(macOS 13.0, *)
 extension Authorization {
     
     /// Exchanges `authorizationCode` for an access token and refreshes it indefinitely.
@@ -46,7 +48,7 @@ extension Authorization {
     }
     
     /// The URL to log in to your app.
-    var authorizeUrl: String {
+    public var authorizeUrl: String {
         var components = URLComponents()
         
         components.scheme = "https"
@@ -66,6 +68,7 @@ extension Authorization {
 }
 
 @available(iOS 16.0, *)
+@available(macOS 13.0, *)
 private extension Authorization {
     
     /// Exchanges `refreshToken` for a new access token and refesh token.
@@ -94,7 +97,7 @@ private extension Authorization {
             URLQueryItem(name: "redirect_uri", value: app.redirectUrl.absoluteString)
         ]
          
-        let url = accessTokenRequestUrl.appending(queryItems: queryItems)
+        let url = accessTokenEndpoint.appending(queryItems: queryItems)
         
         var request = URLRequest(url: url)
         

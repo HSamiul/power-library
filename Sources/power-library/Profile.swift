@@ -8,16 +8,17 @@
 import Foundation
 
 /// The user's profile.
-class Profile {
+public class Profile {
     
     /// The user's display name.
-    var displayName: String? = nil
+    public var displayName: String? = nil
     
     /// An array of the user's profile picture, varying in size.
-    var profilePictures: [Image]? = nil
+    public var profilePictures: [Image]? = nil
 }
 
 @available(iOS 15.0, *)
+@available(macOS 13.0, *)
 private extension Profile {
     
     /// Sends an HTTP request to Spotify's `/me` endpoint.
