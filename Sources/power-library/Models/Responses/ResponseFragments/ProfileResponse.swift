@@ -1,11 +1,11 @@
 //
-//  File.swift
+//  ProfileResponse.swift
 //  
 //
 //  Created by Samiul Hoque on 8/6/24.
 //
 
-struct UserProfileRequestResponse: Decodable {
+struct ProfileResponse: Decodable {
     
      let country: String
     
