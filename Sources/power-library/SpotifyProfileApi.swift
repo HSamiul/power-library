@@ -7,60 +7,34 @@
 
 import Foundation
 
-/// The user's profile.
+/// Sends HTTP requests to the Spotify API's profile and user endpoints.
+@available(iOS 13.0, *)
 @available(macOS 13.0, *)
-public class SpotifyProfileApi: ObservableObject {
-    
-    /// The user's display name.
-    @Published public var displayName: String? = nil {
-        
-        didSet {
-            print("Display name set! \(displayName)")
-        }
-    }
-    
-    /// The user's email address.
-    @Published public var email: String? = nil
-    
-    /// An array of the user's profile picture, varying in size.
-    @Published public var profilePicture: SpotifyImage? = nil
-}
+class SpotifyProfileApi: ObservableObject {
 
-@available(macOS 13.0, *)
-internal extension SpotifyProfileApi {
-    
-    func fetchProfile(accessToken: String) async throws {
-        let response = try await requestUserProfile(accessToken: accessToken)
-        
-        displayName = response.displayName
-        profilePicture = response.images.first
-        email = response.email
-        
-        print("\(displayName) \(profilePicture?.url) \(email)")
-    }
-}
-
-@available(macOS 13.0, *)
-private extension SpotifyProfileApi {
-    
     /// Sends an HTTP request to Spotify's `/me` endpoint.
     ///
     /// - Parameter accessToken: An access token to a user's account.
     ///
     /// - Returns: The response to the request.
-    func requestUserProfile(accessToken: String) async throws -> ProfileResponse {
+    static func requestUserProfile(accessToken: String) async throws -> SpotifyApiProfileResponse {
         var request = URLRequest(url: profileEndpoint)
         
         request.httpMethod = "GET"
         request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         
         let (data, _) = try await URLSession.shared.data(for: request)
-        let response = try JSONDecoder().decode(ProfileResponse.self, from: data)
+        let response = try JSONDecoder().decode(SpotifyApiProfileResponse.self, from: data)
         
         return response
     }
+}
+
+@available(iOS 13.0, *)
+@available(macOS 13.0, *)
+private extension SpotifyProfileApi {
     
-    var profileEndpoint: URL {
+    static var profileEndpoint: URL {
         var components = URLComponents()
         
         components.scheme = "https"

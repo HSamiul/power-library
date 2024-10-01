@@ -5,35 +5,30 @@
 //  Created by Samiul Hoque on 9/30/24.
 //
 
+import Foundation
 
-public final class ProfileService: ObservableObject {
-    
-    /// The user's display name.
-    @Published public var displayName: String? = nil
-    
-    /// The user's email address.
-    @Published public var email: String? = nil
-    
-    /// An array of the user's profile picture, varying in size.
-    @Published public var profilePicture: SpotifyImage? = nil
+/// A service that provides a user's profile information.
+@available(iOS 13.0, *)
+@available(macOS 13.0, *)
+public final class PowerProfileService: ObservableObject {
     
     private var authService: PowerAuthService
     
-    init(authService: PowerAuthService) {
+    public init(_ authService: PowerAuthService) {
         self.authService = authService
-        Task { try await fetchProfile() }
     }
 }
 
-public extension ProfileService {
-    
-    func fetchProfile() async throws {
-        let response = try await requestUserProfile(accessToken: authService.accessToken!)
+@available(iOS 13.0, *)
+@available(macOS 13.0, *)
+public extension PowerProfileService {
+
+    @MainActor
+    func loadProfile() async throws -> Profile {
+        let response = try await SpotifyProfileApi.requestUserProfile(
+            accessToken: authService.accessToken!
+        )
         
-        displayName = response.displayName
-        profilePicture = response.images.first
-        email = response.email
-        
-        print("\(displayName) \(profilePicture?.url) \(email)")
+        return Profile(response)
     }
 }
