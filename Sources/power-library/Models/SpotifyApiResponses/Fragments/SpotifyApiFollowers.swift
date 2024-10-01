@@ -1,11 +1,11 @@
 //
-//  Followers.swift
+//  SpotifyApiFollowers.swift
 //
 //
 //  Created by Samiul Hoque on 8/5/24.
 //
 
-internal struct SpotifyApiFollowers: Decodable {
+struct SpotifyApiFollowers: Decodable {
     
     let href: String?
     

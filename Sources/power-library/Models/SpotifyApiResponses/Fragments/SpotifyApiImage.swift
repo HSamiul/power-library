@@ -1,15 +1,15 @@
 //
-//  SpotifyImage.swift
+//  SpotifyApiImage.swift
 //
 //
 //  Created by Samiul Hoque on 8/5/24.
 //
 
-internal struct SpotifyApiImage: Decodable {
+struct SpotifyApiImage: Decodable {
     
-    internal let url: String
+    let url: String
     
-    internal let height: Int?
+    let height: Int?
     
-    internal let width: Int?
+    let width: Int?
 }

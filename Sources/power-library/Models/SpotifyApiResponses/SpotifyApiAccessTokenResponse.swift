@@ -1,5 +1,5 @@
 //
-//  AccessTokenResponse.swift
+//  SpotifyApiAccessTokenResponse.swift
 //
 //
 //  Created by Samiul Hoque on 8/4/24.
@@ -8,7 +8,7 @@
 import Foundation
 
 /// Response received from Spotify's `api/token` endpoint.
-struct AccessTokenResponse: Decodable {
+struct SpotifyApiAccessTokenResponse: Decodable {
     
     let accessToken: String
     
@@ -21,7 +21,7 @@ struct AccessTokenResponse: Decodable {
     let scope: String
 }
 
-private extension AccessTokenResponse {
+private extension SpotifyApiAccessTokenResponse {
     
     enum CodingKeys: String, CodingKey {
         

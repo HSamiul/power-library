@@ -5,25 +5,25 @@
 //  Created by Samiul Hoque on 8/6/24.
 //
 
+/// Response received from Spotify's `/me` endpoint.
 struct SpotifyApiProfileResponse: Decodable {
-    
      let country: String
     
      let displayName: String
     
      let email: String
     
-     let explicitContent: ExplicitContent
+     let explicitContent: SpotifyApiExplicitContent
     
-     let externalUrls: ExternalUrls
+     let externalUrls: SpotifyApiExternalUrls
     
-     let followers: Followers
+     let followers: SpotifyApiFollowers
     
      let href: String
     
      let id: String
     
-     let images: [SpotifyImage]
+     let images: [SpotifyApiImage]
     
      let product: String
     
