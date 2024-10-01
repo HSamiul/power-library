@@ -8,7 +8,7 @@
 import Foundation
 
 /// Your Spotify app.
-public struct App {
+public struct SpotifyApp {
     
     /// The client ID of your Spotify app.
     let clientId: String

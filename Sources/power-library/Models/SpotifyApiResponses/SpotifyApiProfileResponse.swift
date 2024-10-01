@@ -1,11 +1,11 @@
 //
-//  ProfileResponse.swift
+//  SpotifyApiProfileResponse.swift
 //  
 //
 //  Created by Samiul Hoque on 8/6/24.
 //
 
-struct ProfileResponse: Decodable {
+struct SpotifyApiProfileResponse: Decodable {
     
      let country: String
     
@@ -23,7 +23,7 @@ struct ProfileResponse: Decodable {
     
      let id: String
     
-     let images: [Image]
+     let images: [SpotifyImage]
     
      let product: String
     
@@ -32,7 +32,7 @@ struct ProfileResponse: Decodable {
      let uri: String
 }
 
-private extension ProfileResponse {
+private extension SpotifyApiProfileResponse {
     
     enum CodingKeys: String, CodingKey {
         

@@ -5,7 +5,7 @@
 //  Created by Samiul Hoque on 8/5/24.
 //
 
-struct Followers: Decodable {
+internal struct SpotifyApiFollowers: Decodable {
     
     let href: String?
     

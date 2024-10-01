@@ -5,7 +5,7 @@
 //  Created by Samiul Hoque on 8/5/24.
 //
 
-struct ExternalUrls: Decodable {
+internal struct SpotifyApiExternalUrls: Decodable {
     
      let spotify: String
 }

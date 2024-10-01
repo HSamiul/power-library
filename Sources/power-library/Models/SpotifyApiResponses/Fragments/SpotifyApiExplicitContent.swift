@@ -5,14 +5,15 @@
 //  Created by Samiul Hoque on 8/5/24.
 //
 
-struct ExplicitContent: Decodable {
+internal struct SpotifyApiExplicitContent: Decodable {
 
-    let filterEnabled: Bool  
+    let filterEnabled: Bool
     
     let filterLocked: Bool
 }
 
-private extension ExplicitContent {
+
+private extension SpotifyApiExplicitContent {
     
     enum CodingKeys: String, CodingKey {
         

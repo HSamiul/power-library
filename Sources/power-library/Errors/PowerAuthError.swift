@@ -8,7 +8,7 @@
 import Foundation
 
 /// Errors that may be thrown by `Authorization` .
-enum AuthorizationError: LocalizedError {
+enum PowerAuthError: LocalizedError {
     
     /// An access token was attemped to be refreshed, but there is no refresh token.
     case RefreshTokenMissing
