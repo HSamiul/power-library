@@ -33,7 +33,7 @@ public extension PowerSearchService {
             Track(
                 trackName: apiTrack.name,
                 artistName: apiTrack.artists.first!.name,
-                imageUrl: URL(string: apiTrack.album.images.last!.url)!
+                imageUrl: URL(string: apiTrack.album.images.first!.url)!
             )
         }
         
