@@ -5,7 +5,7 @@
 //  Created by Samiul Hoque on 9/30/24.
 //
 
-public struct SpotifyApiSearchResponse: Decodable {
+struct SpotifyApiSearchResponse: Decodable {
     
     let tracks: SpotifyApiTracks
 }
