@@ -7,6 +7,7 @@
 
 import Foundation
 
+@available(iOS 16.0, *)
 @available(macOS 13.0, *)
 public final class PowerSearchService {
     
@@ -17,7 +18,7 @@ public final class PowerSearchService {
     }
 }
 
-
+@available(iOS 16.0, *)
 @available(macOS 13.0, *)
 public extension PowerSearchService {
     
@@ -29,13 +30,7 @@ public extension PowerSearchService {
         
         let apiTracks = response.tracks.items
         
-        let tracks = apiTracks.map { apiTrack in
-            Track(
-                trackName: apiTrack.name,
-                artistName: apiTrack.artists.first!.name,
-                imageUrl: URL(string: apiTrack.album.images.first!.url)!
-            )
-        }
+        let tracks = apiTracks.map { Track($0) }
         
         return tracks
     }

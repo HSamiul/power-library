@@ -12,7 +12,7 @@ import Foundation
 @available(iOS 16.0, *)
 public class SpotifySearchApi {
     
-    public static func requestSearch(
+    static func requestSearch(
         query: String,
         accessToken: String
     ) async throws -> SpotifyApiSearchResponse {
@@ -31,8 +31,6 @@ public class SpotifySearchApi {
         request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         
         let (data, _) = try await URLSession.shared.data(for: request)
-        
-        print(try JSONSerialization.jsonObject(with: data))
         
         let response = try JSONDecoder().decode(
             SpotifyApiSearchResponse.self,
