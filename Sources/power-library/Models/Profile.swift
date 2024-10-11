@@ -19,6 +19,21 @@ public struct Profile {
     public var profilePictureUrl: URL
 }
 
+public extension Profile {
+    
+    static func mock() -> Self {
+        .init(
+            displayName: "Miles Morales",
+            email: "miles@notspiderman.com",
+            profilePicture: .init(
+                url: "https://i.pinimg.com/474x/99/40/e7/9940e7ece760ee78f3488f2f885a6bae.jpg",
+                height: 400,
+                width: 400
+            )
+        )
+    }
+}
+
 extension Profile {
     
     init(
