@@ -7,6 +7,7 @@
 
 /// Response received from Spotify's `/me` endpoint.
 struct SpotifyApiProfileResponse: Decodable {
+    
      let country: String
     
      let displayName: String

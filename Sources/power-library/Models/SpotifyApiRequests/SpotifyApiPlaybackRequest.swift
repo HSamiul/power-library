@@ -5,18 +5,24 @@
 //  Created by Samiul Hoque on 10/2/24.
 //
 
-struct SpotifyApiPlayRequest: Encodable {
+struct SpotifyApiPlaybackRequest: Encodable {
     
-    let contextUri: String? = nil
+    let contextUri: String?
     
     let uris: [String]?
     
     /* let offset: Int? -- Not an Int; an object I don't feel like making */
     
     let positionMs: Int
+    
+    init(contextUri: String? = nil, uris: [String]? = nil, positionMs: Int) {
+        self.contextUri = contextUri
+        self.uris = uris
+        self.positionMs = positionMs
+    }
 }
 
-private extension SpotifyApiPlayRequest {
+private extension SpotifyApiPlaybackRequest {
     
     enum CodingKeys: String, CodingKey {
         

@@ -51,25 +51,45 @@ struct SpotifyApiTrack: Decodable {
 private extension SpotifyApiTrack {
     
     enum CodingKeys: String, CodingKey {
+        
         case album
+        
         case artists
+        
         case availableMarkets = "available_markets"
+        
         case discNumber = "disc_number"
+        
         case durationMs = "duration_ms"
+        
         case explicit
+        
         case externalIds = "external_ids"
+        
         case externalUrls = "external_urls"
+        
         case href
+        
         case id
+        
         case isPlayable = "is_playable"
+        
         case linkedFrom = "linked_from"
+        
         case restrictions
+        
         case name
+        
         case popularity
+        
         case previewUrl = "preview_url"
+        
         case trackNumber = "track_number"
+        
         case type
+        
         case uri
+        
         case isLocal
     }
 }

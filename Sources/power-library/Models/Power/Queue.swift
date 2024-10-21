@@ -14,7 +14,7 @@ public struct Queue {
 
 public extension Queue {
     
-    func mock() -> Self {
+    static func mock() -> Self {
         .init(
             currentlyPlaying: .mock(),
             queue: [.mock(), .mock(), .mock()]
